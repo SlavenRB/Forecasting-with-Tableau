@@ -1,0 +1,9 @@
+
+SCRIPT_REAL(
+'
+mydata <- data.frame(y=.arg1, x1=.arg2, x2=.arg3);
+reg <- lm(y ~ x1 + x2, data = mydata);
+save(reg, file = "C:/Users/Slaven/Documents/mymodel.rda")
+prob <- predict(reg, newdata = mydata, type = "response")'
+,
+AVG([Cortmax]),AVG([Cortrest]), AVG([Cortp]))

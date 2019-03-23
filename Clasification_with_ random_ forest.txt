@@ -1,0 +1,11 @@
+SCRIPT_REAL('library(rpart);
+fit = rpart(Achtmax ~ Cortrest + Alcohol + Tobacco + Height + Age + Weight, 
+method="anova", data.frame(Achtmax = .arg1, Cortrest =.arg2, Alcohol=.arg3, Tobacco =.arg4, Height =.arg5, Age =.arg6, Weight=.arg7));
+t(data.frame(predict(prune(fit,0.05), type = "vector")))[1,]',
+AVG([Achtmax]),
+AVG([Cortrest]),
+AVG([Alcohol]),
+AVG([Tobacco]),
+AVG([Height]),
+AVG([Age]),
+AVG([Weight]))
